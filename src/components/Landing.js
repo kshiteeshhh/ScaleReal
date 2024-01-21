@@ -42,7 +42,6 @@ const Landing = () => {
       clearTimeout(debounceTimeout);
     }
     let text = event.target.value;
-    // let String=stringConversion(text);
     let newTimer = setTimeout(() => {
       performSearch(text);
     }, 500);
