@@ -120,8 +120,8 @@ const Landing = () => {
           />
         )}
       </div>
-      <div>
-        <Grid container>
+      <div className="h-[100vh]">
+        <Grid container className="h-[100vh]">
           <Grid item xs={12} md={12} lg={6} className="p-3 border-r">
             {filteredMovies.map((ele) => {
               if (!divRefs.current[ele.episode_id]) {
@@ -150,14 +150,23 @@ const Landing = () => {
               );
             })}
           </Grid>
-          <Grid item xs={12} md={6} className="p-3 font-georgia">
+          <Grid
+            item
+            xs={12}
+            md={6}
+            className={`p-3 font-georgia flex h-full ${
+              displayView
+                ? "items-start justify-start"
+                : "items-center justify-center"
+            }`}
+          >
             {!displayView && (
-              <div className="h-[100%] text-[1.1rem] font-medium flex justify-center items-center">
+              <div className=" text-[1.1rem] font-medium">
                 No movie selected
               </div>
             )}
             {displayView && (
-              <div>
+              <div className="">
                 {filteredMovies.map((ele) => {
                   if (Number(ele.episode_id) === selected) {
                     return (
